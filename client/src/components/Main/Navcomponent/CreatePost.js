@@ -12,8 +12,9 @@ import {
 import Navbar from './Navbar';
 import BASEURL from '../../Baseurl';
 
-const CreatePost = () => {
 
+const CreatePost = () => {
+ 
   const id = localStorage.getItem('userId')
   const SubmitHandler = async () => {
     try {
@@ -22,6 +23,11 @@ const CreatePost = () => {
     } catch (error) {
       console.log(error);
     }
+    values.title= ""
+    values.image= ""
+    values.discription= ""
+    values.categoary= ""
+    values.PostedBy= ""
   };
   const { handleChange, values, handleSubmit } = useFormik({
     initialValues: {
