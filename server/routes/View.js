@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const { Post } = require('../models/Post')
-
+const Comment = require('../models/Comment')
 
 router.post("/", async(req, res) => {
 
@@ -28,5 +28,12 @@ router.put('/', async(req, res) => {
     }
 })
 
-
+router.get('/:id', async(req, res) => {
+    try {
+        const data = await Comment.find({ post: req.params.id })
+        res.send(data)
+    } catch (error) {
+        console.log(error)
+    }
+})
 module.exports = router

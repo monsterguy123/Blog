@@ -3,12 +3,13 @@ import axios from 'axios'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { Elipses } from '../../index'
+import BASEURL from '../../../Baseurl'
 
 const Posts = () => {
     const id = localStorage.getItem('userId')
     const [data, setData] = useState([]);
     useEffect(() => {
-        return axios.get(`http://localhost:8080/api/userpost/${id}`)
+        return axios.get(`${BASEURL}/api/userpost/${id}`)
             .then(res => setData(res.data.data))
     }, [id])
     return (

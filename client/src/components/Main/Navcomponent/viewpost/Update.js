@@ -10,12 +10,13 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import { useParams, useNavigate } from 'react-router-dom';
+import BASEURL from '../../../Baseurl';
 
 const Update = () => {
     const { id: user } = useParams()
     const navigate = useNavigate()
     const updateBlog = async () => {
-        let res = await axios.put("http://localhost:8080/api/userpost/update", { userid: user, data: values })
+        let res = await axios.put(`${BASEURL}/api/userpost/update`, { userid: user, data: values })
         if (res.status === 202) {
             navigate(`/viewpost/${user}`)
         }

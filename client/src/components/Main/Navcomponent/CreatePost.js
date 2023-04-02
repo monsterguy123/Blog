@@ -10,14 +10,14 @@ import {
   CardActions,
 } from "@mui/material";
 import Navbar from './Navbar';
-
+import BASEURL from '../../Baseurl';
 
 const CreatePost = () => {
 
   const id = localStorage.getItem('userId')
   const SubmitHandler = async () => {
     try {
-      const url = "http://localhost:8080/api/userpost";
+      const url = `${BASEURL}/api/userpost`;
       await axios.post(url, values);
     } catch (error) {
       console.log(error);

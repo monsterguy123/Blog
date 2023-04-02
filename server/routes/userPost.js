@@ -9,7 +9,7 @@ router.post("/", async(req, res) => {
         if (error) {
             return res.status(401).json({ msg: error.details[0].message })
         }
-        console.log(req.body.user)
+
         const existingUser = await User.findById(req.body.user)
 
         if (!existingUser) {
@@ -17,7 +17,7 @@ router.post("/", async(req, res) => {
         }
 
         let data = await new Post(req.body);
-        console.log(data)
+
         if (existingUser._id === req.body.user) {
             existingUser.blogs.push(data)
             await existingUser.save()

@@ -9,13 +9,14 @@ import {
 import axios from "axios";
 import Navbar from "./Navbar";
 import { Elipses } from "..";
+import BASEURL from "../../Baseurl";
 
 const Home = () => {
   const [data, setData] = useState([]);
 
 
   useEffect(() => {
-    return axios.get(`http://localhost:8080/api/userpost`)
+    return axios.get(`${BASEURL}/api/userpost`)
       .then((res) => setData(res.data.data));
   }, []);
 

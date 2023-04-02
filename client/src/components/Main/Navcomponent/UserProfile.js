@@ -3,12 +3,13 @@ import Navbar from './Navbar'
 import { Card, CardContent, Typography, Avatar } from '@mui/material'
 import Posts from './profile/posts'
 import axios from 'axios'
+import BASEURL from '../../Baseurl'
 
 const UserProfile = () => {
   const [data, setData] = useState({})
   const id = localStorage.getItem('userId')
   useEffect(() => {
-    return axios.get(`http://localhost:8080/api/users/${id}`)
+    return axios.get(`${BASEURL}/api/users/${id}`)
       .then(res => setData(res.data.data))
   }, [])
 
